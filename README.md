@@ -87,8 +87,10 @@
 上述Keras 預訓練實用工具十分方便。但為了更精細的控制，您可以使用tf.data和tf.image編寫自己的資料增強管線或資料增強層。您也可以查看TensorFlow Addons 影像：運算和TensorFlow I/O：色彩空間轉換。
 由於花卉資料集之前已經配置了資料增強，因此我們將其重新導入以重新開始。
 ![](021.png)
+
 檢索一個影像以供使用：
 ![](022.png)
+
 我們來使用以下函數呈現原始影像和增強影像，然後並排比較。
 ![](023.png)
 
@@ -97,6 +99,7 @@
 翻轉影像
 使用tf.image.flip_left_right垂直或水平翻轉影像：
 ![](024.png)
+
 您可以使用tf.image.rgb_to_grayscale對影像進行灰階處理：
 ![](025.png)
 
@@ -149,14 +152,17 @@
 對資料集應用增強
 我們首先再次下載圖像資料集，以防它們在先前的部分中被修改
 ![](033.png)
+
 接下來，定義一個用於調整影像大小和重新縮放影像的效用函數。此函數將用於統一資料集中影像的大小和比例：
 ![](034.png)
+
 我們同時定義augment函數，該函數可以將隨機變換應用於影像。此函數將在下一步中用於資料集。
 ![](035.png)
 
 選項1：使用tf.data.experimental.Counter
 建立一個tf.data.experimental.Counter()物件（我們稱之為counter)，並使用(counter, counter) Dataset.zip資料集。這將確保資料集中的每個影像都與一個基於counter的唯一值（形狀為(2,)）相關聯，稍後可以將其傳遞到augment函數，作為隨機變換的seed值。
 ![](036.png)
+
 將augment函數映射到訓練資料集：
 ![](037.png)
 
@@ -165,6 +171,7 @@
 定義一個封裝容器函數：1) 呼叫make_seeds函數；2) 將新產生的seed值傳遞給augment函數進行隨機變換。
 注意：tf.random.Generator物件會將RNG 狀態儲存在tf.Variable中，這表示它可以儲存為檢查點或以SavedModel格式儲存。有關詳情，請參閱隨機數產生。
 ![](038.png)
+
 將封裝容器函數f對應到訓練資料集，並將resize_and_rescale函數對應到驗證集和測試集：
 ![](039.png)
 
