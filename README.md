@@ -1,5 +1,6 @@
 113-1南華大學跨領域-人工智慧 主題:數據增強
-報告學生:11124149 吳學民 11224211 李崇勛
+
+報告學生:11124110 高儒彥 11224136 王何儀
 
 數據增強：一種透過應用隨機（但真實）的變換（例如影像旋轉）來增加訓練集多樣性的技術。我們將學習如何透過兩種方式應用數據增強：
 使用Keras 預處理層，例如tf.keras.layers.Resizing、tf.keras.layers.Rescaling、tf.keras.layers.RandomFlip和tf.keras.layers.RandomRotation。
@@ -7,4 +8,4 @@
 
 設定
 
-![image](https://github.com/user-attachments/assets/9fc61a1a-3bbf-406c-8b71-197458985237)
+![image](螢幕擷取畫面 2025-01-04 165002.png)
